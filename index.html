@@ -18,7 +18,9 @@
 <body>
 <div class="container">
 
-<iframe src="http://www.cenp.com.br/Site/cenp_revista/EDICAO_48.pdf" width="300" height="500">
+<div class="row text-center" style="margin-top:100px;display: none">
+<img src="img/ajax-loader.gif" id="wait">
+</div>
 
 	<div data-role="header" data-position="fixed">
 			<center>
@@ -53,6 +55,8 @@ function stripHTML(dirtyString) {
 			  url: "http://clarearpropaganda.com.br/teste/revista/revista/leitor/apiRevistas",
 				crossDomain: true,
 				dataType: 'html',
+				 beforeSend: function() { $('#wait').show(); },
+        		complete: function() { $('#wait').hide(); },
 				
 				statusCode: {
 			    404: function() {
