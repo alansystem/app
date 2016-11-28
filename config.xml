@@ -23,9 +23,6 @@
     -->
     <preference name="permissions"                value="none"/>
 
-    <allow-navigation href="http://clarearpropaganda.com.br/Verificacao_de_Circulacao_release.pdf" />
-
-
     <!-- Customize your app and platform with the preference element. -->
     <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
@@ -98,6 +95,9 @@
     <!-- Added the following intents to support the removal of whitelist code from base cordova to a plugin -->
     <!-- Whitelist configuration. Refer to https://cordova.apache.org/docs/en/edge/guide_appdev_whitelist_index.md.html -->
     <plugin name="cordova-plugin-whitelist" source="npm" />
+
+    <allow-navigation href="http://clarearpropaganda.com.br/Verificacao_de_Circulacao_release.pdf" />
+    
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
