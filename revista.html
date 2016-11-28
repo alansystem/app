@@ -29,8 +29,10 @@
 		    <button class="ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-check">Alan Nogueira</button>
 		</div>
 
-
+<!--
 <iframe frameborder="0" id="iframeRevista" allowfullscreen></iframe>
+-->
+<embed src="http://www.cenp.com.br/Site/cenp_revista/EDICAO_48.pdf" type='application/pdf'>
 
 <div class="row text-center" style="margin-top:100px;display: none">
 <img src="img/ajax-loader.gif" id="wait">
@@ -47,10 +49,17 @@ function stripHTML(dirtyString) {
 
 
 
+
+
 	$(function(){
-		/*
-			var url 	= window.location.href;
-			var link 	= url.split('#link=');*/
+
+		var id_revista = sessionStorage.getItem('revista_id');
+
+		$.post('http://www.clarearpropaganda.com.br/teste/revista/revista/leitor/apiUrlRevista',{id_revista:id_revista},function(data){
+			console.log(data);
+
+			$('#iframeRevista').attr('src','https://docs.google.com/gview?url='+data+'&embedded=true');
+		});
 
 			var windowWidth = window.innerWidth;
   			var windowHeight = (window.innerHeight-180);
@@ -59,7 +68,7 @@ function stripHTML(dirtyString) {
 			$('#iframeRevista').css('height',windowHeight);
 
 			//$('#iframeRevista').attr('src','https://docs.google.com/gview?url='+link[1]+'&embedded=true');
-			$('#iframeRevista').attr('src','https://docs.google.com/gview?url=http://clarearpropaganda.com.br/Verificacao_de_Circulacao_release.pdf&embedded=true');
+			
 
 
 		});

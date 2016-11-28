@@ -50,6 +50,11 @@ function stripHTML(dirtyString) {
 
 	$(function(){
 
+		$( document ).on( "click", ".btnViewRevista", function() {
+				sessionStorage.setItem('revista_id',$(this).attr('id'));
+		});
+
+
 			var windowWidth = window.innerWidth;
   			var windowHeight = window.innerHeight;
 
@@ -98,8 +103,9 @@ function stripHTML(dirtyString) {
 <div data-role="footer"><hr>
 </div>
 
-
+	<!--
 	<script src="cordova.js"></script>
+	-->
 
 </body>
 </html>
