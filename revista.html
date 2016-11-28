@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CENP Revista</title>
+
+
+
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+</head>
+<body>
+
+	<div data-role="header" data-position="fixed">
+		<center>
+			<img src="img/cenp-logo.png" class="img-responsive">	
+		</center>
+	</div>
+
+	<div data-role="header" style="margin-bottom: 20px">
+		    <a href="home.html" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left" data-transition="flip">Voltar</a>
+			<br>
+		    <button class="ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-check">Alan Nogueira</button>
+		</div>
+
+
+<iframe frameborder="0" id="iframeRevista" allowfullscreen></iframe>
+
+<div class="row text-center" style="margin-top:100px;display: none">
+<img src="img/ajax-loader.gif" id="wait">
+</div>
+	
+<script type="text/javascript">
+
+function stripHTML(dirtyString) {
+  var container = document.createElement('div');
+  var text = document.createTextNode(dirtyString);
+  container.appendChild(text);
+  return container.innerHTML; // innerHTML will be a xss safe string
+}
+
+
+
+	$(function(){
+			var url 	= window.location.href;
+			var link 	= url.split('#link=');
+
+			var windowWidth = window.innerWidth;
+  			var windowHeight = (window.innerHeight-180);
+
+			$('#iframeRevista').css('width','100%');
+			$('#iframeRevista').css('height',windowHeight);
+
+			//$('#iframeRevista').attr('src','https://docs.google.com/gview?url='+link[1]+'&embedded=true');
+			$('#iframeRevista').attr('src','https://docs.google.com/gview?url=http://clarearpropaganda.com.br/Verificacao_de_Circulacao_release.pdf&embedded=true');
+
+
+		});
+</script>
+
+</body>
+</html>
