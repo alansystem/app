@@ -29,9 +29,6 @@
 		</div>
 <div class="container">
 
-<button onclick="openWin()">Open "myWindow"</button>
-<button onclick="closeWin()">Close "myWindow"</button>
-
 <div class="row text-center" style="margin-top:100px;display: none">
 <img src="img/ajax-loader.gif" id="wait">
 </div>
@@ -42,17 +39,6 @@
 
 <script type="text/javascript">
 
-
-		var myWindow;
-
-		function openWin() {
-		    myWindow - window.open("http://cenp.com.br/revista/revista/leitor/downloadPDF/EDICAO_2", "myWindow", "width=300,height=100");
-		}
-
-		function closeWin() {
-		    myWindow.close();
-		}
-
 function stripHTML(dirtyString) {
   var container = document.createElement('div');
   var text = document.createTextNode(dirtyString);
@@ -60,15 +46,11 @@ function stripHTML(dirtyString) {
   return container.innerHTML; // innerHTML will be a xss safe string
 }
 
-
-
 	$(function(){
 
 
 		$( document ).on( "click", ".btnViewRevista", function() {
 				sessionStorage.setItem('revista_id',$(this).attr('id'));
-
-				alert('clicou');
 		});
 
 
@@ -99,21 +81,10 @@ function stripHTML(dirtyString) {
 
 			      	$('.revistas').html(resultado);	    
 			  
+			}).fail(function() {
+			    alert( "Sem conexão"; );
 			});
 			      
-    
-
-			
-
-			      /*
-		$.getJSON('http://clarearpropaganda.com.br/teste/revista/revista/leitor/apiRevistas',function(data){
-				for (var i=0; i < data.length; i++){
-			      //$('.container').append(stripHTML(data[i].titulo.replace('<br>',''))+'<br>');
-
-			      $('#boxRevistas').append('<div class="col-xs-6"><img src="img/revista_example.jpg" class="img-responsive"></div><div class="col-xs-6">'+stripHTML(data[i].titulo.replace('<br>','')));
-			    }
-		});
-		*/
 
 		});
 </script>
