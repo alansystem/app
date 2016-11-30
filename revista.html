@@ -29,7 +29,7 @@
 		    <button class="ui-btn-right ui-btn ui-btn-b ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-check">Alan Nogueira</button>
 		</div>
 
-
+<button onclick="location.reload()">Recarregar</button>
 <iframe frameborder="0" id="iframeRevista" allowfullscreen></iframe>
 
 
@@ -57,7 +57,8 @@ function stripHTML(dirtyString) {
 		$.post('http://www.clarearpropaganda.com.br/teste/revista/revista/leitor/apiUrlRevista',{id_revista:id_revista},function(data){
 			console.log(data);
 
-			$('#iframeRevista').attr('src','https://docs.google.com/gview?url='+data+'&embedded=true');
+			//$('#iframeRevista').attr('src','https://docs.google.com/gview?url='+data+'&embedded=true');
+			$('#iframeRevista').attr('src','http://www.cenp.com.br/Site/cenp_revista/EDICAO_2.pdf');
 		});
 
 			var windowWidth = window.innerWidth;
