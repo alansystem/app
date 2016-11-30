@@ -23,6 +23,11 @@
 		</div>
 	
 <div class="container">
+
+
+<div class="row text-center" style="margin-top:100px;display: none">
+<img src="img/ajax-loader.gif" id="wait">
+</div>
 	
 		<div class="row">
 			<div class="col-xs-12">
@@ -33,10 +38,10 @@
 					  </div>
 					  <div class="form-group">
 					    <label for="pwd">Senha:</label>
-					    <input type="password" class="form-control" id="pwd">
+					    <input type="password" class="form-control" id="senha">
 					  </div>
-
-					  <a class="btn btn-default" onclick="javascript:location.href='home.html'">Acessar</a>
+					  <!--onclick="javascript:location.href='home.html'"-->
+					  <a class="btn btn-default btnAcessar">Acessar</a>
 				</form>
 			</div>
 		</div>
@@ -47,6 +52,64 @@
 
 	$(function(){
 
+		$('.btnAcessar').click(function(){
+
+			var email = $('#email').val();
+			var senha = $('#senha').val();
+
+			$.ajax({
+			  method: "POST",
+			  async: false,
+			  data: {email:email,senha:senha},
+			  url: "http://clarearpropaganda.com.br/teste/revista/revista/leitor/apiLogin",
+				crossDomain: true,
+				dataType: 'html',
+				 beforeSend: function() { $('#wait').show(); },
+        		complete: function() { $('#wait').hide(); },
+				
+				statusCode: {
+			    404: function() {
+			      console.log('Página fora do ar');
+			    }
+			    }
+			      
+				})
+			      .done(function(resultado) {
+			      	alert(resultado);
+
+			      	var dados = resultado.split(';');
+
+			      	//Caso sucesso no login
+			      	if(dados[0] == 'logado')
+			      	{
+			      		alert('logado');
+			      		sessionStorage.setItem('id_cadastro',dados[1]);
+						sessionStorage.setItem('nome',dados[2]);
+						sessionStorage.setItem('email',dados[3]);
+						sessionStorage.setItem('logado','true');
+
+						location.href="home.html";
+
+			      	}else if(dados[0] == 'falha-login')
+			      	{
+			      		alert('Não foi encontrado seu cadastro, verifique se digitou corretamente!');
+
+			      	}else if(dados[0] == 'nao-ativada')
+			      	{
+			      		alert('Sua conta não encontra-se ativada, acesse o email que enviamos e clique no link de ativação!');
+			      	}
+
+
+				  })
+				  .fail(function() {
+				    alert( "error" );
+				  })
+				  .always(function() {
+				    //alert( "complete" );
+				  });
+		});
+
+		
 
 
 	});
