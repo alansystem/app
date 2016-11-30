@@ -29,6 +29,9 @@
 		</div>
 <div class="container">
 
+<button onclick="openWin()">Open "myWindow"</button>
+<button onclick="closeWin()">Close "myWindow"</button>
+
 <div class="row text-center" style="margin-top:100px;display: none">
 <img src="img/ajax-loader.gif" id="wait">
 </div>
@@ -38,6 +41,17 @@
 </div><!-- Fim container -->
 
 <script type="text/javascript">
+
+
+		var myWindow;
+
+		function openWin() {
+		    myWindow - window.open("http://cenp.com.br/revista/revista/leitor/downloadPDF/EDICAO_2", "myWindow", "width=300,height=100");
+		}
+
+		function closeWin() {
+		    myWindow.close();
+		}
 
 function stripHTML(dirtyString) {
   var container = document.createElement('div');
@@ -50,8 +64,11 @@ function stripHTML(dirtyString) {
 
 	$(function(){
 
+
 		$( document ).on( "click", ".btnViewRevista", function() {
 				sessionStorage.setItem('revista_id',$(this).attr('id'));
+
+				alert('clicou');
 		});
 
 
