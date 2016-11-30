@@ -2,10 +2,6 @@
 <html>
 <head>
 	<title>CENP Revista</title>
-	<meta http-equiv="Content-Security-Policy" 
-             content="default-src *; 
-                      style-src * 'self' 'unsafe-inline' 'unsafe-eval'; 
-                      script-src * 'self' 'unsafe-inline' 'unsafe-eval';">
 
 
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
@@ -36,7 +32,11 @@
 <a href="http://www.clarearpropaganda.com.br/Verificacao_de_Circulacao_release.pdf" target="_blank">Teste 1</a><br>
 <a href="http://www.cenp.com.br/Site/cenp_revista/EDICAO_2.pdf">Teste 2</a>
 
-<object width="400" height="400" data="http://www.clarearpropaganda.com.br/Verificacao_de_Circulacao_release.pdf"></object>
+<object data="http://www.clarearpropaganda.com.br/Verificacao_de_Circulacao_release.pdf" type="application/pdf" width="700px" height="700px">
+    <embed src="http://www.clarearpropaganda.com.br/Verificacao_de_Circulacao_release.pdf">
+        This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
 
 
 
